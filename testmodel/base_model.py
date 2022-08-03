@@ -1,27 +1,35 @@
 import uuid
 import datetime
 
+date_format = "%Y-%m-%dT%H:%M:%S.%f"
+
 class BaseModel:
     id = str(uuid.uuid4())
-    create_at = datetime.datetime.now()
-    update_at = datetime.datetime.now()
+    created_at = datetime.datetime.now()
+    updated_at = datetime.datetime.now()
 
-    def __init__(self, id, create_at=None, update_at=None):
-        self.id = id
-        self.create_at = create_at
-        self.update_at = update_at
+    def __init__(self, id=None, created_at=None, updated_at=None):
+        if id is None:
+            self.id = BaseModel.id
+        if created_at is None:
+            self.created_at = BaseModel.created_at
+        if updated_at is None:
+            self.updated_at = BaseModel.updated_at
     
     def to_dict(self):
-        return {
-            'id': self.id,
-            'create_at': self.create_at,
-            'update_at': self.update_at
-        }
-    
+        """ dictionary representation of the objects
+        """
+        dict = {}
+        dict.update(self.__dict__)
+        dict['__class__'] = self.__class__.__name__
+        return dict
+
+       
     def __str__(self):
-        return f'BaseModel({self.id}, {self.__dict__})'
+        """ string format method """
+        return "[{}] ({}) ({})".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
-        self.update_at = datetime.datetime.now()
-        return self.update_at
+        self.updated_at = datetime.datetime.now()
+        return self.updated_at
         
