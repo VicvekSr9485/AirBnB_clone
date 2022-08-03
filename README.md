@@ -85,3 +85,4 @@ $![815046647d23428a14ca](https://user-images.githubusercontent.com/85700432/1823
 
 # AUTHORS:
 Olamide Oso | Olamideoso65@gmail.com
+Oluwashogo Oyewale | Oyewaletimmy01@gmail.com
