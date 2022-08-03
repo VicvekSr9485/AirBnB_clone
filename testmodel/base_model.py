@@ -8,6 +8,7 @@ class BaseModel:
     created_at = datetime.datetime.now()
     updated_at = datetime.datetime.now()
 
+
     def __init__(self, id=None, created_at=None, updated_at=None):
         if id is None:
             self.id = BaseModel.id
@@ -24,7 +25,6 @@ class BaseModel:
         dict['__class__'] = self.__class__.__name__
         return dict
 
-       
     def __str__(self):
         """ string format method """
         return "[{}] ({}) ({})".format(self.__class__.__name__, self.id, self.__dict__)
@@ -32,4 +32,4 @@ class BaseModel:
     def save(self):
         self.updated_at = datetime.datetime.now()
         return self.updated_at
-        
+

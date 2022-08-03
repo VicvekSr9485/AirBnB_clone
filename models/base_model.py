@@ -7,6 +7,7 @@ from datetime import datetime
 
 date_format = "%Y-%m-%dT%H:%M:%S.%f"
 
+
 class BaseModel:
     """
     Base class for all models
@@ -24,7 +25,7 @@ class BaseModel:
             self.created_at = BaseModel.created_at
         if updated_at is None:
             self.updated_at = BaseModel.updated_at
-    
+
     def to_dict(self):
         """ dictionary representation of the objects
         """
@@ -33,14 +34,13 @@ class BaseModel:
         dict['__class__'] = self.__class__.__name__
         return dict
 
-       
     def __str__(self):
         """ string format method """
-        return "[{}] ({}) ({})".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) ({})".format(self.__class__.__name__,
+                                       self.id, self.__dict__)
 
     def save(self):
         """ save method for objects updates
         """
         self.updated_at = datetime.now()
         return self.updated_at
-        
