@@ -22,6 +22,8 @@ class BaseModel:
         """
         dict = {}
         dict.update(self.__dict__)
+        dict['created_at'] = dict['created_at'].isoformat()
+        dict['updated_at'] = dict['updated_at'].isoformat()
         dict['__class__'] = self.__class__.__name__
         return dict
 
@@ -31,5 +33,4 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.datetime.now()
-        return self.updated_at
 

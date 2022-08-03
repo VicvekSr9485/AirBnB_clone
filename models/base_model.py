@@ -43,4 +43,3 @@ class BaseModel:
         """ save method for objects updates
         """
         self.updated_at = datetime.now()
-        return self.updated_at
