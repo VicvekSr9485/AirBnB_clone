@@ -8,15 +8,26 @@ class BaseModel:
     created_at = datetime.datetime.now()
     updated_at = datetime.datetime.now()
 
-
-    def __init__(self, id=None, created_at=None, updated_at=None):
-        if id is None:
+    def __init__(self, *args, **kwargs):
+        if len(kwargs) != 0:
+            for key, value in kwargs.items():
+                if key == '__class__':
+                    continue
+                setattr(self, key, value)
+        else:
             self.id = BaseModel.id
-        if created_at is None:
             self.created_at = BaseModel.created_at
-        if updated_at is None:
             self.updated_at = BaseModel.updated_at
     
+    def setattr(self, key, value):
+        if key in ['created_at', 'updated_at']:
+            if isinstance(value, str):
+                try:
+                    value = datetime.datetime.strptime(value, date_format)
+                except ValueError:
+                    raise ValueError('Invalid date format: ({}) for {}'.format(value, key))
+        super().__setattr__(key, value)
+
     def to_dict(self):
         """ dictionary representation of the objects
         """
