@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+"""
+This module contains the base model
+"""
+
 import uuid
 import datetime
 from __init__ import storage
@@ -47,5 +52,5 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.datetime.now()
+        models.storage.new(self)
         storage.save()
-

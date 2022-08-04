@@ -1,4 +1,9 @@
-import base_model
+#!/usr/bin/python3
+"""
+file storage module
+"""
+
+from base_model import BaseModel
 import json
 import os
 
@@ -19,7 +24,7 @@ class FileStorage:
             new_dict[key] = value.to_dict()
             json.dump(new_dict, open(self.__file_path, "w"))
 
-    def relaod(self):
+    def reload(self):
         if os.path.exists(self.__file_path):
             new_data = json.load(open(self.__file_path, "r"))
             for key, value in new_data.items():
