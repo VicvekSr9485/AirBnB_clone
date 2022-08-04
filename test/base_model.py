@@ -1,5 +1,7 @@
 import uuid
 import datetime
+from __init__ import storage
+
 
 date_format = "%Y-%m-%dT%H:%M:%S.%f"
 
@@ -18,6 +20,7 @@ class BaseModel:
             self.id = BaseModel.id
             self.created_at = BaseModel.created_at
             self.updated_at = BaseModel.updated_at
+            storage.new(self)
     
     def setattr(self, key, value):
         if key in ['created_at', 'updated_at']:
@@ -44,4 +47,5 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.datetime.now()
+        storage.save()
 
