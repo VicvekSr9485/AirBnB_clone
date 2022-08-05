@@ -6,6 +6,7 @@ import cmd
 from models import storage
 from models.base_model import BaseModel
 import shlex
+from datetime import datetime
 
 classes = {'BaseModel': BaseModel}
 
@@ -93,6 +94,36 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 print([str(v) for v in storage.all().values()])
+
+    def do_update(self, arg):
+        """ Updates an instance based on the class name and id
+        """
+        args = shlex.split(arg)
+        if len(args) == 0:
+            print("** class name missing **")
+            return False
+        elif args[0] in classes:
+            if len(args) < 2:
+                print("** instance id missing **")
+                return
+            key = args[0] + "." + args[1]
+            if key not in storage.all():
+                print("** no instance found **")
+            else:
+                obj = storage.all()[key]
+                attrs = ["id", "created_at", "updated_at"]
+                if obj:
+                    args = shlex.split(arg)
+                    if len(args) < 3:
+                        print("** attribute name missing **")
+                    elif len(args) < 4:
+                        print("** value missing **")
+                    elif args[2] not in attrs:
+                        obj.__dict__[args[2]] = args[3]
+                        obj.updated_at = datetime.now()
+                        storage.save()
+        else:
+            print("** class doesn't exist **")
 
 
 if __name__ == '__main__':
