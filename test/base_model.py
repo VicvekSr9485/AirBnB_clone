@@ -6,6 +6,7 @@ This module contains the base model
 import uuid
 import datetime
 from __init__ import storage
+import json
 
 
 date_format = "%Y-%m-%dT%H:%M:%S.%f"
