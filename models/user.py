@@ -2,7 +2,6 @@
 """ This Module defines a class User that inherits from
 the BaseModel class"""
 
-from uuid import uuid4
 from models.base_model import BaseModel
 
 
