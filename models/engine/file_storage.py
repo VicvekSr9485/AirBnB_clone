@@ -6,6 +6,7 @@ file storage module
 from models.base_model import BaseModel
 import json
 import os
+from models.user import User
 
 
 class FileStorage:

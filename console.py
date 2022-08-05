@@ -7,8 +7,9 @@ from models import storage
 from models.base_model import BaseModel
 import shlex
 from datetime import datetime
+from models.users import User
 
-classes = {'BaseModel': BaseModel}
+classes = {'BaseModel': BaseModel, "User": User}
 
 
 class HBNBCommand(cmd.Cmd):
