@@ -13,9 +13,6 @@ class BaseModel:
     """
     Base class for all models
     """
-    id = str(uuid4())
-    created_at = datetime.now()
-    updated_at = datetime.now()
 
     def __init__(self, *args, **kwargs):
         """ The init method for base class
@@ -26,9 +23,9 @@ class BaseModel:
                     continue
                 setattr(self, key, value)
         else:
-            self.id = BaseModel.id
-            self.created_at = BaseModel.created_at
-            self.updated_at = BaseModel.updated_at
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
 
     def __setattr__(self, name, value):
