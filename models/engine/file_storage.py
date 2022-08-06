@@ -24,7 +24,7 @@ class FileStorage:
         """ Create a new object in the storage
         """
         self.__objects.update({f"{obj.__class__.__name__}.{obj.id}": obj})
-    
+
     def save(self):
         """ Save the object in the storage
         """

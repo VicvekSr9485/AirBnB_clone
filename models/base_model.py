@@ -48,6 +48,7 @@ class BaseModel:
                     raise AttributeError("Invalid value: ({}) for name: ({})"
                                          .format(value, name))
         super().__setattr__(name, value)
+
     def to_dict(self):
         """ dictionary representation of the objects
         """
