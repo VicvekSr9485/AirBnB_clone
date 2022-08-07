@@ -1,22 +1,16 @@
-#!/usr/bin/env python3
-""" This module contains the base class for all the subclasses
-"""
+#!/usr/bin/python3
+"""BaseModel class"""
 
-from uuid import uuid4
-from datetime import datetime
 import models
-
-date_format = "%Y-%m-%dT%H:%M:%S.%f"
+import uuid
+from datetime import datetime
 
 
 class BaseModel:
-    """
-    Base class for all models
-    """
-
+    """BaseModel class to be inherited by other classes"""
     def __init__(self, *args, **kwargs):
         """__init__ method & instantiation of class Basemodel"""
-        self.id = str(uuid4())
+        self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = self.created_at
         for name, value in kwargs.items():
@@ -45,24 +39,21 @@ class BaseModel:
                                          .format(value, name))
         super().__setattr__(name, value)
 
-    def to_dict(self):
-        """ dictionary representation of the objects
-        """
-        dict = {}
-        dict.update(self.__dict__)
-        dict['created_at'] = dict['created_at'].isoformat()
-        dict['updated_at'] = dict['updated_at'].isoformat()
-        dict['__class__'] = self.__class__.__name__
-        return dict
-
     def __str__(self):
-        """ string format method """
+        """Format `self` for output"""
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
 
     def save(self):
-        """ save method for objects updates
-        """
+        """updates the public instance attribute updated_at"""
         self.updated_at = datetime.now()
-        models.storage.new(self)
         models.storage.save()
+
+    def to_dict(self):
+        """returns a dictionary containing all key/value pairs of __dict__"""
+        d = {}
+        d.update(self.__dict__)
+        d['created_at'] = d['created_at'].isoformat()
+        d['updated_at'] = d['updated_at'].isoformat()
+        d['__class__'] = self.__class__.__name__
+        return d
