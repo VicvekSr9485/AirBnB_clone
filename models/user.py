@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-""" This Module defines a class User that inherits from
-the BaseModel class"""
+"""class User that inherits from BaseModel"""
 
-from models.base_model import BaseModel
+import models
 
 
-class User(BaseModel):
-    """ class User implements
-    """
-    email = ""
-    password = ""
-    first_name = ""
-    last_name = ""
+class User(models.BaseModel):
+    """Class to store User info"""
+    email = ''
+    password = ''
+    first_name = ''
+    last_name = ''
