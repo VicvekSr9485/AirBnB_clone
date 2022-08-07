@@ -15,17 +15,16 @@ class BaseModel:
     """
 
     def __init__(self, *args, **kwargs):
-        """ The init method for base class
-        """
-        if len(kwargs) != 0:
-            for key, value in kwargs.items():
-                if key == '__class__':
-                    continue
-                setattr(self, key, value)
-        else:
-            self.id = str(uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
+        """__init__ method & instantiation of class Basemodel"""
+        self.id = str(uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = self.created_at
+        for name, value in kwargs.items():
+            """searches through dict for keys"""
+            if name == "__class__":
+                continue
+            setattr(self, name, value)
+        if "id" not in kwargs:
             models.storage.new(self)
 
     def __setattr__(self, name, value):
