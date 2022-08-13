@@ -1,5 +1,5 @@
 # 0x01. AirBnB clone - Web static
-This is the continuation of the airbnb clone project, this part introduced the static portion of the web, HTML & CSS.
+This is the continuation of the airbnb clone project, this part introduces the static portion of the web, HTML & CSS.
 
 # Requirements
 
