@@ -1,4 +1,6 @@
 # 0x01. AirBnB clone - Web static
+This is the continuation of the airbnb clone project, this part introduced the static portion of the web, HTML & CSS.
+
 # Requirements
 
 # General
@@ -15,3 +17,4 @@
 * No cross browsers
 * You have to follow all requirements but some margin/padding are missing - you should try to fit as much as you can to screenshots
 
+![hbnb_step1](https://user-images.githubusercontent.com/85700432/184508690-0a1257c2-6e65-4f05-a065-ce6dfd2f4fe6.png)
