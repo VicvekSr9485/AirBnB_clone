@@ -5,11 +5,10 @@ header {
     border-bottom: 1px solid #cccccc;
 }
 
-.logo {
+.web-logo {
     background-image: url(../images/logo.png);
     position: absolute;
     width: 142px;
     height: 60px;
     left: 20px;
-    margin-top: 7px;
 }

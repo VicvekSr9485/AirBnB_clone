@@ -1,58 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <title>AirBnB clone</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/4-common.css">
     <link rel="stylesheet" href="styles/3-header.css">
     <link rel="stylesheet" href="styles/3-footer.css">
     <link rel="stylesheet" href="styles/6-filters.css">
-    <link rel="icon" type="image/png" href="images/icon.png">
-  </head>
+    <link rel="icon" href="images/icon.png">
+    <title>AirBnB clone</title>
 
-  <body>
+</head>
+
+<body>
     <header>
+        <div class="web-logo"></div>
     </header>
+    <!--container-->
     <div class="container">
-      <section class="filters">
-          <div class="locations">
+        <!--filters-->
+        <section class="filters">
+            <!--locatins and amenities-->
+            <div class="locations">
               <h3>States</h3>
               <h4>California, Arizona...</h4>
               <ul class="popover">
-                <li><h2>Arizona</h2></li>
                   <li>
-                    <ul class="sub-popover">
-                      <li>Page</li>
-                      <li>Page2</li>
+                    <ul>
+                      <li class="head">Arizona:</li>
+                      <li>Coconino Plateau</li>
+                      <li>Canyon Lands</li>
                     </ul>
                   </li>
-                <li><h2>Westham</h2></li>
                   <li>
-                    <ul class="sub-popover">
-                      <li>Anfield</li>
-                      <li>Stamford</li>
+                    <ul>
+                      <li class="head">California:</li>
+                      <li>Inland Empire</li>
+                      <li>South Los Angeles County</li>
                     </ul>
                   </li>
               </ul>
-          </div>
-          <div class="amenities">
-              <h3>Amenities</h3>
-              <h4>Internet, Kitchen...</h4>
-              <ul class="popover">
-                <li>Internet</li>
-                <li>TV</li>
-                <li>Kitchen</li>
-                <li>Washer</li>
-              </ul>
-          </div>
-          <div></div>
-          <button>
-            Search
-          </button>
-      </section>
+            </div>
+            <div class="amenities">
+                <h3>Amenities</h3>
+                <h4>Internet, Kitchen...</h4>
+                <ul class="popover">
+                    <li>
+                      <ul>
+                        <li>Internet</li>
+                        <li>Kitchen</li>
+                        <li>Television</li>
+                      </ul>
+                    </li>
+                  </ul>
+            </div>
+            <button>Search</button>
+        </section>
+
     </div>
-    <footer>
-      <p>Best School</p>
-    </footer>
-  </body>
+    <footer>Best School</footer>
+</body>
+
 </html>
